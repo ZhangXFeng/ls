@@ -38,6 +38,7 @@ import com.locationService.dba.SubscibeDBA;
 import com.locationService.dba.UserDBA;
 import com.locationService.exception.InvalidInputException;
 import com.locationService.exception.UserNotExistOrVisitPasswordErrorException;
+import com.locationService.exception.UsernameOrPasswordError;
 import com.locationService.model.inputModel.CancleSubscibeInputModel;
 import com.locationService.model.inputModel.GetSubscibeInfoInputModel;
 import com.locationService.model.inputModel.LocationAccessInputModel;
@@ -147,6 +148,9 @@ public class LocationResource {
 			LOG.error("[INVALID INPUT] INPUT=" + accessInfo, e);
 			returnModel.setStatus(3);
 			returnModel.setDescription("invalid input.");
+		} catch (UsernameOrPasswordError e) {
+			returnModel.setStatus(1);
+			returnModel.setDescription("user not exit or visitpassword error.");
 		}
 		return returnModel;
 	}
