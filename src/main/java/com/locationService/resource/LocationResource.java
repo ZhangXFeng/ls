@@ -149,6 +149,7 @@ public class LocationResource {
 			returnModel.setStatus(3);
 			returnModel.setDescription("invalid input.");
 		} catch (UsernameOrPasswordError e) {
+			
 			returnModel.setStatus(1);
 			returnModel.setDescription("user not exit or visitpassword error.");
 		}
